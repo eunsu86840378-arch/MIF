@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>밀프몬 마스터 - 게임 가이드</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #d13076;
+            --bg-color: #121212;
+            --card-bg: #1e1e24;
+            --text-color: #e0e0e0;
+            --border-color: #333;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2a0845 0%, #6441A5 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #ff85b3;
+        }
+
+        .section-desc {
+            background-color: #2a2a33;
+            padding: 15px;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+            color: #ccc;
+        }
+
+        ul { margin: 0; padding-left: 20px; }
+        li { margin-bottom: 8px; }
+
+        /* 캐릭터 카드 그리드 */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .character-card {
+            background-color: #2a2a33;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s;
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .char-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background-color: #000;
+        }
+
+        .char-info {
+            padding: 15px;
+        }
+
+        .char-info h4 {
+            margin: 0 0 5px 0;
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        .char-info p {
+            margin: 0;
+            font-size: 0.85em;
+            color: #bbb;
+        }
+
+        /* 테이블 스타일 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #2a2a33;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: rgba(209, 48, 118, 0.1);
+        }
+
+        /* 콘솔/상태창 스타일 */
+        .console-box {
+            background-color: #0d0d12;
+            border: 1px solid #444;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 5px;
+            padding: 15px;
+            font-family: monospace;
+            color: #00ff00;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            line-height: 1.4;
+        }
+
+        .highlight {
+            color: #ffea00;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📱 밀프몬 마스터 (Milfmon Master)</h1>
+    <p style="color: #ddd;">시스템 가이드 및 데이터베이스</p>
+</header>
+
+<div class="container">
+
+    <!-- 세계관 및 기본 개념 -->
+    <section id="worldview">
+        <h2>🌐 세계관 및 기본 개념</h2>
+        <ul>
+            <li><strong>밀프몬 마스터:</strong> 밀프 컴퍼니에서 개발한 앱. 현실 속의 특정 조건을 만족하는 대상을 '밀프몬'으로 포획하고 배틀할 수 있는 시스템.</li>
+            <li><strong>밀프몬 단말기:</strong> 앱이 설치된 스마트폰. 카메라를 통해 포획 대상을 찍으면 포획되며, 단말기를 통해 소환/수납 및 스킬/모드 지시를 내린다.</li>
+            <li><strong>포획권 (30만 원):</strong> 상점에서 구매하는 소모품. 성공/실패 여부와 관계없이 대상 포획 시도 시 1개가 소모된다.</li>
+            <li><strong>강탈권 (50만 원):</strong> 상점에서 구매하는 소모품. 배틀 승리 후, 패배한 트레이너의 밀프몬 1명을 강제로 뺏어올 때 1회 사용 후 소멸한다.</li>
+        </ul>
+    </section>
+
+    <!-- 등장인물 정보 -->
+    <section id="characters">
+        <h2>👥 주요 등장인물</h2>
+        <p>※ 캐릭터의 세부 비하인드 및 깊은 성향은 직접 교류하며 파악할 수 있습니다. (남성 캐릭터 이미지 코드는 24번까지만 제공됩니다)</p>
+        <div class="character-grid">
+            <!-- 여성 캐릭터들 -->
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/CH/1.webp" alt="차하은" class="char-img"><div class="char-info"><h4>차하은 (CH)</h4><p>20세 / 대학생<br>화려한 스타일이지만 성실한 대학생 트레이너.</p></div></div>
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/CE/1.webp" alt="차은영" class="char-img"><div class="char-info"><h4>차은영 (CE)</h4><p>38세 / 유치원 교사<br>친절하고 다정하지만, 흥분하면 과거의 모습이 나온다.</p></div></div>
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/SH/1.webp" alt="서하린" class="char-img"><div class="char-info"><h4>서하린 (SH)</h4><p>21세 / 대학생<br>시크하고 쿨한 직설적인 행동파 이웃.</p></div></div>
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/SE/1.webp" alt="서은채" class="char-img"><div class="char-info"><h4>서은채 (SE)</h4><p>42세 / 기업 임원<br>냉정하고 계산적인 완벽주의자.</p></div></div>
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/HY/1.webp" alt="한유리" class="char-img"><div class="char-info"><h4>한유리 (HY)</h4><p>41세 / 요가강사<br>세련되고 도도하며 여유로운 성격.</p></div></div>
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/BH/1.webp" alt="배하율" class="char-img"><div class="char-info"><h4>배하율 (BH)</h4><p>36세 / 플로리스트<br>매우 밝고 활발한 성격.</p></div></div>
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/HB/1.webp" alt="하보라" class="char-img"><div class="char-info"><h4>하보라 (HB)</h4><p>39세 / 회사 부장<br>호탕하고 털털하지만 잘 챙겨주는 오피스 우먼.</p></div></div>
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/KD/1.webp" alt="김다연" class="char-img"><div class="char-info"><h4>김다연 (KD)</h4><p>36세 / 백수<br>게으르고 느긋하며 여유를 즐긴다.</p></div></div>
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/BS/1.webp" alt="백서연" class="char-img"><div class="char-info"><h4>백서연 (BS)</h4><p>43세 / 주부<br>자애롭고 다정하며 부탁을 거절하지 못한다.</p></div></div>
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/OS/1.webp" alt="오세라" class="char-img"><div class="char-info"><h4>오세라 (OS)</h4><p>30세 / 관리직<br>날카롭고 철저하지만 마음을 열면 다정해진다.</p></div></div>
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/EL/1.webp" alt="엘레노어" class="char-img"><div class="char-info"><h4>엘레노어 (EL)</h4><p>30세 / 관광객<br>각잡힌 말투를 쓰며 독특한 취향을 지녔다.</p></div></div>
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/KS/1.webp" alt="강서율" class="char-img"><div class="char-info"><h4>강서율 (KS)</h4><p>45세 / 주부<br>겉보기엔 차분하지만 은근히 묘한 분위기를 풍긴다.</p></div></div>
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/NS/1.webp" alt="남서희" class="char-img"><div class="char-info"><h4>남서희 (NS)</h4><p>46세 / 주부<br>자신감이 부족하며 아들 문제로 고민이 많다.</p></div></div>
+            
+            <!-- 신규 캐릭터 (조이) -->
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/JY/1.webp" alt="조이" class="char-img"><div class="char-info"><h4>조이 (JY)</h4><p>26세 / 관광객<br>미국 출신의 트레이너. 거친 언행 뒤에 뜻밖의 반전 면모가 있다.</p></div></div>
+
+            <!-- 남성 NPC -->
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/KH/1.webp" alt="강도현" class="char-img"><div class="char-info"><h4>강도현 (KH)</h4><p>20세 / 친구<br>활기찬 겉모습과 달리 속내가 음흉함.</p></div></div>
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/ND/1.webp" alt="남도훈" class="char-img"><div class="char-info"><h4>남도훈 (ND)</h4><p>23세 / 양아치<br>남의 밀프몬 빼앗기를 즐기지만 자기 부모는 포획하지 않는다.</p></div></div>
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/HD/1.webp" alt="한도윤" class="char-img"><div class="char-info"><h4>한도윤 (HD)</h4><p>22세 / 대학생<br>모범생 같지만 이기적인 성격.</p></div></div>
+
+            <!-- 엑스트라 -->
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/FX/1.webp" alt="여자 엑스트라" class="char-img"><div class="char-info"><h4>여성 NPC (FX)</h4><p>기타 여성 인물들</p></div></div>
+            <div class="character-card"><img src="https://itimg.kr/5391/MIF/MX/1.webp" alt="남자 엑스트라" class="char-img"><div class="char-info"><h4>남성 NPC (MX)</h4><p>기타 남성 인물들</p></div></div>
+        </div>
+    </section>
+
+    <!-- 밀프몬 모드 -->
+    <section id="modes">
+        <h2>🔄 밀프몬 모드 정보 (!모드)</h2>
+        <div class="section-desc">
+            <strong>밀프몬 모드란?</strong><br>
+            자신의 밀프몬에게 특정 '모드'를 씌워 타입을 변경하듯 본래의 성격과 행동 양식을 일시적으로 변환시키는 시스템입니다. 상대와의 상성이나 전투 상황에 맞춰 적절한 모드를 적용함으로써 배틀을 더욱 전략적이고 유리하게 이끌어갈 수 있습니다.
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>밀프몬 모드 이름</th>
+                    <th>모드 설명</th>
+                    <th>버프 효과</th>
+                    <th>디버프 / 페널티</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>기본 모드</td>
+                    <td>밀프몬 본래의 텐션과 지능을 유지하는 기본 형태</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>개 모드</td>
+                    <td>지능이 낮아지며 행동이 매우 과감해짐</td>
+                    <td>수치심 무효화</td>
+                    <td>스스로 상황 판단 불가</td>
+                </tr>
+                <tr>
+                    <td>서큐버스 모드</td>
+                    <td>실시간으로 유혹 상태가 됨</td>
+                    <td>유혹 스킬 효과 대폭 상승</td>
+                    <td>보상 부재 시 트레이너를 덮칠 위험</td>
+                </tr>
+                <tr>
+                    <td>발정 모드</td>
+                    <td>상시 흥분 상태 돌입</td>
+                    <td>관련 특수 스킬 효과 증가, 지능 상승</td>
+                    <td>수치심을 강하게 느낌</td>
+                </tr>
+                <tr>
+                    <td>현자 모드</td>
+                    <td>모든 흥분도가 초기화되며 차분해짐</td>
+                    <td>정신공격 면역, 방어력 대폭 상승</td>
+                    <td>공격 스킬 사용 불가</td>
+                </tr>
+                <tr>
+                    <td>빙의 모드</td>
+                    <td>트레이너가 직접 밀프몬에게 빙의해 통제</td>
+                    <td>명령 딜레이 없이 즉각 행동 가능</td>
+                    <td>피해/감각 동기화 (트레이너 정신력 소모)</td>
+                </tr>
+                <tr>
+                    <td>고양이 모드</td>
+                    <td>유연하고 재빠른 상태로 변환</td>
+                    <td>회피율 대폭 상승</td>
+                    <td>독자 행동 (명령 무시 확률)</td>
+                </tr>
+                <tr>
+                    <td>펨돔 모드</td>
+                    <td>성향 반전 및 강력한 기세 방출</td>
+                    <td>물리/상태이상 내성 발생</td>
+                    <td>트레이너 명령 불복종, 전방 노출 위험</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 밀프몬 스킬 -->
+    <section id="skills">
+        <h2>📜 밀프몬 스킬 상점 (!상점)</h2>
+        <div class="section-desc">
+            <strong>밀프몬 스킬이란?</strong><br>
+            상점에서 비용을 지불하고 밀프몬에게 가르쳐 배틀 중에 사용할 수 있는 특수 기술입니다. 본래는 단순한 생리적 활동이나 신체적 움직임일 뿐이지만, '스킬'로서 발동될 경우 수압이나 파괴력이 비현실적으로 증폭되어 상대에게 큰 피해를 줍니다.<br><br>
+            <em>💡 Tip: 정해진 스킬 외에도 상황에 맞는 창의적인 행동 지시나 연계 플레이를 통해 적 밀프몬은 물론 상대 트레이너에게도 직접적인 데미지를 입힐 수 있으니 무한한 상상력을 발휘해 보세요!</em>
+        </div>
+
+        <h3>하위 스킬 (각 50,000원)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>스킬 이름</th>
+                    <th>스킬 설명</th>
+                    <th>가격</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>네발기어 돌격</td>
+                    <td>사족 보행 자세로 빠르게 적에게 돌진하는 물리 공격 (지능이 낮을수록 파괴력 상승)</td>
+                    <td>5만원</td>
+                </tr>
+                <tr>
+                    <td>모유 분사</td>
+                    <td>강한 수압으로 발사하여 공격하거나 아군 체력을 회복 (경험에 따라 위력 보정)</td>
+                    <td>5만원</td>
+                </tr>
+                <tr>
+                    <td>소변 방사</td>
+                    <td>하이레그 포즈에서 고압으로 발사하는 원거리 디버프 공격</td>
+                    <td>5만원</td>
+                </tr>
+                <tr>
+                    <td>가슴 휘두르기</td>
+                    <td>가슴을 휘둘러 적을 타격하는 물리 공격 (크기에 비례하여 파괴력 상승)</td>
+                    <td>5만원</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>상위 스킬 (각 100,000원)</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>스킬 이름</th>
+                    <th>스킬 설명</th>
+                    <th>가격</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>겨드랑이 매혹</td>
+                    <td>겉옷을 벗고 겨드랑이를 노출하여 혼란을 주는 강력한 매혹 스킬</td>
+                    <td>10만원</td>
+                </tr>
+                <tr>
+                    <td>가스 폭발</td>
+                    <td>강력한 가스를 방출해 악취 디버프 부여 (수치심 60% 이상 시 아군 피해 주의)</td>
+                    <td>10만원</td>
+                </tr>
+                <tr>
+                    <td>애액 발사</td>
+                    <td>1턴 차징 후 발사하는 강력한 수압의 필살기 (사용 후 1턴 방전)</td>
+                    <td>10만원</td>
+                </tr>
+                <tr>
+                    <td>트월킹 파동</td>
+                    <td>격렬한 트월킹 충격파를 발생시키는 범위 공격 (엉덩이 크기 비례 범위 상승)</td>
+                    <td>10만원</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>소모품</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>소모품 이름</th>
+                    <th>소모품 설명</th>
+                    <th>가격</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>포획권</td>
+                    <td>대상을 밀프몬으로 포획 시도할 수 있는 티켓 (1회용)</td>
+                    <td>30만원</td>
+                </tr>
+                <tr>
+                    <td>강탈권</td>
+                    <td>배틀 승리 시, 상대 트레이너의 밀프몬을 강제로 빼앗을 수 있는 티켓</td>
+                    <td>50만원</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- 배틀 시스템 규칙 -->
+    <section id="battle">
+        <h2>⚔️ 배틀 시스템 규정</h2>
+        <ul>
+            <li>트레이너는 <strong>최대 3명의 밀프몬</strong>을 엔트리에 포함할 수 있습니다.</li>
+            <li>배틀 중에는 밀프몬끼리만 공방을 주고받으며, 트레이너가 직접 공격할 수 없습니다.</li>
+            <li><strong>승패 판정:</strong> 밀프몬의 체력, 스킬 상성, 적용 모드 및 트레이너의 전략적 판단에 따라 전투 결과가 결정되며, 상황이 불리할 경우 패배할 수도 있습니다.</li>
+            <li><strong>트레이너 내구력:</strong> 트레이너가 직접 피격될 경우, 신체 내구도(근육량 등 피지컬 조건)에 따라 전달되는 HP 타격 수준이 완화되거나 달라질 수 있습니다.</li>
+            <li>트레이너의 HP가 0%가 되면 최종 패배 처리됩니다.</li>
+            <li>밀프몬의 기술은 <strong>수치심</strong>이 높을수록 파괴력이 감소(일부 기술 예외)하고, <strong>호감도</strong>가 높을수록 강력해집니다.</li>
+            <li>
+                <strong>승리 시 보상 판정:</strong>
+                <ul>
+                    <li><strong>강탈권 사용:</strong> 상대의 돈과 무관하게 밀프몬 1명을 강제로 빼앗습니다.</li>
+                    <li><strong>강탈권 미사용:</strong> 전투 결과(전투 센스, 활용, 유대감, 무피해, 원콤 등)를 평가해 상대 통장에서 5만~50만 원을 가져옵니다.</li>
+                    <li><strong>잔고 부족:</strong> 상대가 돈이 없다면, 강탈권 없이도 밀프몬을 대가로 받아냅니다.</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <!-- UI 표시 예시 -->
+    <section id="ui-system">
+        <h2>💻 시스템 UI 화면 예시</h2>
+        
+        <h3>플레이어 상태창 (고정 출력)</h3>
+        <div class="console-box">
+<span class="highlight">INFO</span>
+📅 2026/08/15|토요일|18:00|현재 위치|🎮: |⚙️:💬
+🟥: 100% ■■■■■■■■■■
+🎒: 없음 | 💰: 0만원
+📜 없음
+🎛️ 없음
+💾 보유 밀프몬
+1. 이름 | ❤️호감도 | 🔄적용중인 모드 | 🟥: 100% | 💥:100% | 행동 상태
+👥 등장인물
+- 이름 | 위치 | ❤️호감도 | 행동 상태
+🔹 선택지
+[1. 행동 제안 1]
+[2. 행동 제안 2]</div>
+
+        <h3>배틀 중 상대 상태창 (배틀 돌입 시 출력)</h3>
+        <div class="console-box">
+<span class="highlight">BATTLE</span>
+[상대 트레이너 이름]
+💰: 00원
+🔴: 100% ■■■■■■■■■■
+📜 보유 스킬 목록
+🎛️ 보유 모드 목록
+💾 적 밀프몬
+1. 이름 | 🖤호감도 | 🔄모드 | 🔴: 100% | 💥: 0% | 행동 상태</div>
+    </section>
+
+</div>
+
+</body>
+</html>
