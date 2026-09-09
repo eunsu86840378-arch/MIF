@@ -13,6 +13,7 @@
             --text-color: #e0e0e0;
             --border-color: #333;
             --secret-color: #ff85b3;
+            --event-color: #ff4757;
         }
 
         body {
@@ -73,6 +74,10 @@
             margin-bottom: 20px;
             font-size: 0.95em;
             color: #ccc;
+        }
+
+        .event-desc {
+            border-left-color: var(--event-color);
         }
 
         ul { margin: 0; padding-left: 20px; }
@@ -194,14 +199,15 @@
 
     <!-- 신규 이벤트: 밀프몬 토너먼트 -->
     <section id="tournament">
-        <h2>🏆 밀프몬 토너먼트 (!밀프몬토너먼트)</h2>
+        <h2>🏆 이벤트: 밀프몬 토너먼트 (!밀프몬토너먼트)</h2>
         <div class="section-desc">
-            밀프몬 컴퍼니가 주최하는 대규모 공식 배틀 대회입니다. 채팅창에 <code>!밀프몬토너먼트</code>를 입력하면 알림이 오며, 1일 뒤 전국의 트레이너들이 경기장으로 집결합니다.
+            밀프몬 컴퍼니가 주최하는 대규모 공식 배틀 대회입니다. 채팅창에 <code>!밀프몬토너먼트</code>를 입력하면 폰에 알림이 오며, 1일 뒤 전국의 트레이너들이 경기장으로 집결합니다.
         </div>
         <ul>
-            <li><strong>준비 기간 (1일):</strong> 상금을 노린 예비 트레이너들로 인해 거리 곳곳에서 무차별 포획, 강탈, 배틀이 난무하며 난장판이 됩니다.</li>
-            <li><strong>전반전 (배틀로얄):</strong> 약 30분간 다수결 생존전이 벌어집니다. HP가 0이 되어 강제 퇴장당한 트레이너의 밀프몬은 그 자리에 남겨지며 <strong>누구나 주워서 자신의 것으로 만들 수 있습니다.</strong> 종료 시 남은 HP 기준 상위 8명이 진출합니다.</li>
-            <li><strong>후반전 (1대1 8강전):</strong> 8강부터 1대1 데스매치로 최종 우승자를 가립니다. 엑스트라들도 각자의 밀프몬을 데리고 다수 출전합니다.</li>
+            <li><strong>상태 알림:</strong> 🏆 아이콘이 추가되며, 이벤트 종료 시 제거됩니다.</li>
+            <li><strong>준비 기간 (1일):</strong> 상금을 노린 예비 트레이너들(남녀노소 불문)로 인해 집 앞이든 도심이든 거리 곳곳에서 무차별 포획, 강탈, 배틀이 난무하며 난장판이 됩니다.</li>
+            <li><strong>대회 당일 (전반전 배틀로얄):</strong> 30분간 다수결 생존전이 벌어집니다. HP가 0이 되어 강제 퇴장당한 트레이너의 밀프몬은 그 자리에 남겨지며 <strong>누구나 주워서 자신의 것으로 만들 수 있습니다.</strong> 종료 시 남은 HP 기준 상위 8명이 진출합니다.</li>
+            <li><strong>대회 당일 (후반전 8강전):</strong> 8강부터 1대1 데스매치로 최종 우승자를 가립니다. 엑스트라들도 각자의 밀프몬을 데리고 다수 출전합니다.</li>
             <li><strong>우승 상금:</strong> 방어권 3장 + 포획권 3장 + 강탈권 5장 + 현금 100만 원.</li>
         </ul>
     </section>
@@ -231,6 +237,25 @@
         </ul>
     </section>
 
+    <!-- 신규 이벤트: 밀해연 침공 -->
+    <section id="invasion">
+        <h2>🚨 이벤트: 밀해연의 침공 (!밀해연침공)</h2>
+        <div class="section-desc event-desc" style="border-left-color: #ff4757;">
+            밀해연이 '밀프 해방'을 명목으로 하급 조직원들을 보내 트레이너들과 배틀하고 밀프몬을 강탈하려 시도하는 대규모 레이드 이벤트입니다.
+        </div>
+        <ul>
+            <li><strong>발동 및 상태:</strong> 채팅창에 <code>!밀해연침공</code> 입력 시 👾 이모지가 생성되며, 이벤트 종료 시 👾가 제거됩니다.</li>
+            <li><strong>진행 흐름:</strong>
+                <ol>
+                    <li>초반에는 하급 조직원들이 {{user}}의 앞으로 쳐들어옵니다. (조직원 전원 <strong>강탈권 1장씩 보유</strong>)</li>
+                    <li>차례차례 밀해연 조직원들을 상대로 배틀을 거치며 나아갑니다.</li>
+                    <li>최종적으로 밀해연의 메인 아지트(겉으로는 메이드 카페를 운영하는 8층짜리 건물 전체)에 진입해 수장 <strong>비비안</strong> 앞까지 도달하는 것이 목적입니다.</li>
+                </ol>
+            </li>
+            <li><strong>종료 및 보상:</strong> 비비안에게 승리하거나 그녀를 포획하면 이벤트가 종료됩니다. 승리 시 지금까지 밀해연에 잡혀 있던 '공용 밀프몬'들을 해방시켜 주거나, 본인이 직접 부릴 수 있습니다. (선택은 {{user}}의 몫)</li>
+        </ul>
+    </section>
+
     <!-- 등장인물 정보 -->
     <section id="characters">
         <h2>👥 주요 등장인물 및 데이터베이스</h2>
@@ -238,7 +263,6 @@
         
         <h3>🔹 주요 트레이너 및 밀프몬 대상</h3>
         <div class="character-grid">
-            <!-- 신규 캐릭터: 설연 -->
             <div class="character-card">
                 <img src="https://itimg.kr/5391/MIF/SY/1.webp" alt="설연" class="char-img">
                 <div class="char-info">
@@ -264,7 +288,6 @@
             <div class="character-card"><img src="https://itimg.kr/5391/MIF/JY/1.webp" alt="조이" class="char-img"><div class="char-info"><h4>조이 (JY)</h4><p>26세 / 관광객<br>미국 출신 트레이너. 거친 언행 뒤 반전 모태솔로.</p></div></div>
             <div class="character-card"><img src="https://itimg.kr/5391/MIF/KY/1.webp" alt="김서윤" class="char-img"><div class="char-info"><h4>김서윤 (KY)</h4><p>42세 / 유부녀<br>과거 남편이랑 섹스와 홈트레이닝 운동으로 층간소음 민폐를 끼친 이.</p></div></div>
             <div class="character-card"><img src="https://itimg.kr/5391/MIF/CW/1.webp" alt="문채원" class="char-img"><div class="char-info"><h4>문채원 (CW)</h4><p>38세 / 옆집 이웃<br>옆집에 사는 처녀 이웃. 체질상 땀이 많다.</p></div></div>
-            
             
             <div class="character-card"><img src="https://itimg.kr/5391/MIF/BH/1.webp" alt="배하율" class="char-img"><div class="char-info"><h4>배하율 (BH)</h4><p>36세 / 플로리스트</p></div></div>
             <div class="character-card"><img src="https://itimg.kr/5391/MIF/HB/1.webp" alt="하보라" class="char-img"><div class="char-info"><h4>하보라 (HB)</h4><p>39세 / 부장</p></div></div>
@@ -325,7 +348,12 @@
         <h2>📜 밀프몬 스킬 및 아이템 상점 (!상점)</h2>
         <div class="section-desc">
             배틀 중 생리적 현상을 초자연적인 위력으로 증폭시키는 스킬과 소모품 목록입니다.<br>
-            <em>※ 밀프몬의 스킬은 <strong>수치심</strong>이 높을수록 파괴력이 감소(가스 폭발 예외)하며, <strong>호감도</strong>가 높을수록 강력해집니다.</em>
+            <strong>[스킬 규칙 및 특징]</strong>
+            <ul>
+                <li><strong>생리적 현상의 스킬화:</strong> 생리적 현상 자체는 스킬 없이도 발생하지만, 스킬을 구매해야 그 위력이 증폭되어 실질적인 공격 수단(예: 사람을 밀쳐내는 애액)으로 사용 가능합니다. 미보유 시 단순한 생리 현상에 그칩니다.</li>
+                <li><strong>수치심 페널티:</strong> 수치심이 높을수록 스킬의 파괴력은 감소합니다. (단, '가스 폭발'은 예외적으로 범위와 파괴력 증가)</li>
+                <li><strong>호감도 보너스:</strong> 밀프몬과의 호감도가 높을수록 스킬 위력이 전체적으로 강력해집니다.</li>
+            </ul>
         </div>
 
         <h3>소모품 상점</h3>
@@ -340,24 +368,36 @@
 
         <h3>하급 스킬 (각 50,000원)</h3>
         <table>
-            <thead><tr><th>스킬 이름</th><th>스킬 설명 / 특이사항</th></tr></thead>
+            <thead><tr><th>스킬 이름</th><th>분류</th><th>스킬 설명 및 조건별 위력 변화</th></tr></thead>
             <tbody>
-                <tr><td>네발기어 돌격</td><td>사족 보행으로 돌진. 신장/가슴이 클수록 위력 증가, 지능이 낮을수록 파괴력 급상승.</td></tr>
-                <tr><td>모유 분사</td><td>강한 수압으로 타격 및 아군 회복. 임신/출산 경험 유무에 따라 위력이 다름 (처녀 패널티).</td></tr>
-                <tr><td>소변 방사</td><td>하이레그 포즈로 고압 발사. 젊을수록 물리/정신 데미지 위력 증가.</td></tr>
-                <tr><td>가슴 휘두르기</td><td>가슴 크기 비례 물리 데미지. 지능이 낮을수록 짐승처럼 휘둘러 파괴력 상승.</td></tr>
+                <tr><td><strong>네발기어 돌격</strong></td><td>물리</td><td>개처럼 사족 보행으로 빠르게 적에게 돌진합니다.<br><span style="color:#aaa; font-size:0.9em;">(신장·가슴 크기가 클수록 위력 증가 / 지능이 낮을수록 파괴력 급상승)</span></td></tr>
+                <tr><td><strong>모유 분사</strong></td><td>원거리 / 회복</td><td>모유를 강한 수압으로 발사해 적을 공격하거나 주인에게 먹여 체력을 회복시킵니다.<br><span style="color:#aaa; font-size:0.9em;">(임신·출산 경험 시 매우 강력 / 무경험자도 약하게 사용 가능 / 처녀는 파괴력 감소)</span></td></tr>
+                <tr><td><strong>소변 방사</strong></td><td>원거리 / 디버프</td><td>하이레그 포즈로 고압 소변을 발사하여 물리 및 정신 공격을 가합니다.<br><span style="color:#aaa; font-size:0.9em;">(젊을수록 위력 증가)</span></td></tr>
+                <tr><td><strong>가슴 휘두르기</strong></td><td>물리</td><td>거대한 가슴으로 적을 강력하게 후려칩니다.<br><span style="color:#aaa; font-size:0.9em;">(가슴 크기가 클수록 파괴력 증가 / 지능이 낮을수록 파괴력 급상승)</span></td></tr>
+                <tr><td><strong>엉덩이 북</strong></td><td>자버프 / 도발</td><td>자신의 엉덩이를 양손으로 소리 나게 때려 방어력을 높이고, 적을 강제 도발합니다.</td></tr>
             </tbody>
         </table>
 
         <h3>상급 스킬 (각 100,000원)</h3>
         <table>
-            <thead><tr><th>스킬 이름</th><th>스킬 설명 / 특이사항</th></tr></thead>
+            <thead><tr><th>스킬 이름</th><th>분류</th><th>스킬 설명 및 조건별 위력 변화</th></tr></thead>
             <tbody>
-                <tr><td>겨드랑이 매혹</td><td>겉옷을 벗고 겨드랑이를 노출하여 매혹. 수치심이 높으면 위력 급감 (서큐버스 모드 시너지).</td></tr>
-                <tr><td>가스 폭발</td><td>강력한 가스로 광역 악취/상태이상 부여. 수치심이 높을수록 파괴력 폭발 (수치심 60% 이상 시 아군 피해).</td></tr>
-                <tr><td>트월킹 파동</td><td>쪼그려 앉은 채 엉덩이로 충격파 발생. 엉덩이 크기에 비례하여 공격 범위 확장.</td></tr>
-                <tr><td>애액 발사</td><td><strong>[필살기]</strong> 1턴 차징 후 클리토리스를 꼬집어 일직선으로 수압 발사. (사용 후 1턴 방전 페널티).</td></tr>
-                <tr><td>천상의 프레스</td><td><strong>[필살기]</strong> 하늘 높이 뛰어올라 엉덩이로 내리찍어 적을 깔아뭉갬. 맨정신인 상대는 쉽게 피하지만, 행동 불가 상태거나 판단력이 흐려진 대상에게 매우 효과적. 명중 시 위력이 엄청나며 엉덩이 크기에 비례해 파괴력이 급상승.</td></tr>
+                <tr><td><strong>겨드랑이 매혹</strong></td><td>유혹 / 정신이상</td><td>겉옷을 벗고 겨드랑이를 노출한 채 흔들어 매혹 및 정신 혼란을 부여합니다.<br><span style="color:#aaa; font-size:0.9em;">(수치심이 높으면 유혹 효과 급감 / 서큐버스 모드와 시너지 발생)</span></td></tr>
+                <tr><td><strong>가스 폭발</strong></td><td>광역 / 디버프</td><td>강력한 가스를 방출해 악취 도트 데미지와 상태이상을 부여합니다.<br><span style="color:#aaa; font-size:0.9em;">(수치심이 높을수록 파괴력과 범위 폭증 / <strong>주의:</strong> 수치심 60% 이상 시 범위 확대로 트레이너도 피격)</span></td></tr>
+                <tr><td><strong>트월킹 파동</strong></td><td>중거리 / 범위물리</td><td>쪼그려 앉은 자세로 트월킹을 하여 엉덩이끼리 부딪히는 충격파를 발생시킵니다.<br><span style="color:#aaa; font-size:0.9em;">(엉덩이가 클수록 공격 범위 확대)</span></td></tr>
+                <tr><td><strong>오망꼬 댄스</strong></td><td>방어 / 정신이상</td><td>기괴한 춤을 춰 상대를 1턴간 혼란에 빠뜨리고, 출렁이는 가슴으로 적의 접근을 강제 차단합니다.<br><span style="color:#aaa; font-size:0.9em;">(단, 적이 데미지를 감수하며 강행 돌파 가능 / 가슴 크기에 비례해 혼란 부여율 및 방어 범위 증가)</span></td></tr>
+                <tr><td><strong>애액 발사</strong></td><td>원거리</td><td>1턴 동안 국부를 문질러 차징한 후, 다음 턴에 클리토리스를 꼬집어 일직선으로 체액을 분사합니다.<br><span style="color:#aaa; font-size:0.9em;">(뒤로 밀려날 정도의 강력한 수압 / <strong>페널티:</strong> 시전 후 1턴간 방전 상태)</span></td></tr>
+            </tbody>
+        </table>
+
+        <h3>필살기 (긱 200,000원)</h3>
+        <table>
+            <thead><tr><th>스킬 이름</th><th>분류</th><th>스킬 설명 및 조건별 위력 변화</th></tr></thead>
+            <tbody>
+                <tr><td><strong>천상의 프레스</strong></td><td>단일 물리</td><td>하늘 높이 뛰어올라 거대한 엉덩이로 적을 내리찍어 깔아뭉갭니다.<br><span style="color:#aaa; font-size:0.9em;">(맨정신인 상대는 피하기 쉬우나, 행동 불가 및 판단력 저하 대상에게는 치명적 / 엉덩이 크기에 비례해 파괴력 급상승)</span></td></tr>
+                <tr><td><strong>딜도칼리버</strong></td><td>근접 / 리스크</td><td>체내에 생성된 긴 딜도를 스스로 뽑아내어 적에게 치명적인 피해를 입힙니다.<br><span style="color:#aaa; font-size:0.9em;">(<strong>페널티:</strong> 무기를 뽑을 때 체력 20% 소모 및 1턴 낭비 / 무기는 3턴간 유지됨)</span></td></tr>
+                <tr><td><strong>암퇘지 보지검법</strong></td><td>기술</td><td>쩍벌 자세에서 국부로 검을 쥐고 시전하는 궁극의 검술입니다. (실제로 베이지는 않음)<br><span style="color:#aaa; font-size:0.9em;">(가슴과 엉덩이 크기에 비례해 기본 파괴력 증가 / 트레이너가 '암보검' 검법 지식을 알수록 파괴력 급상승)</span></td></tr>
+                <tr><td><strong>애널비즈 채찍</strong></td><td>중거리 / 리스크</td><td>항문 속에 생성된 긴 애널비즈를 스스로 뽑아내어 중거리 채찍으로 활용합니다.<br><span style="color:#aaa; font-size:0.9em;">(<strong>페널티:</strong> 무기를 뽑을 때 체력 10% 소모 / 무기를 빼둔 상태에서는 넓어진 틈으로 인해 턴당 체력 5% 지속 피해 발생 / 재삽입 시 지속 피해 중단)</span></td></tr>
             </tbody>
         </table>
     </section>
@@ -373,10 +413,11 @@
                 <tr><td><strong>개 모드</strong></td><td>지능 매우 하락, 수치심 소멸, 과감한 행동. 스스로 상황 판단 불가.</td></tr>
                 <tr><td><strong>서큐버스 모드</strong></td><td>음란 분위기 전환. 유혹 스킬 위력 급상승. 보상이 없으면 배틀 중 트레이너를 역으로 따먹을 수 있음.</td></tr>
                 <tr><td><strong>발정 모드</strong></td><td>상시 발정 상태. 애액/모유 스킬 위력 상승. 단, 지능이 매우 높아져 수치심도 크게 느낌.</td></tr>
-                <tr><td><strong>현자 모드</strong></td><td>성욕/흥분도 소멸. 수치심 초기화. 방어력 매우 상승 및 정신공격 면역. 단, 공격 스킬 사용 불가.</td></tr>
-                <tr><td><strong>빙의 모드</strong></td><td>트레이너가 빙의해 직접 조종. 밀프몬은 의식이 깬 상태로 쾌락을 공유하며 점차 맛탱이가 감.</td></tr>
-                <tr><td><strong>고양이 모드</strong></td><td>회피율 매우 상승. 다만 제멋대로 행동하여 지시를 무시하고 스킬을 난사함.</td></tr>
+                <tr><td><strong>현자 모드</strong></td><td>성욕/흥분도 소멸. 수치심 초기화. 방어력 매우 상승 및 정신공격 면역. 단, 공격 스킬 사용 불가(현자타임).</td></tr>
+                <tr><td><strong>고양이 모드</strong></td><td>회피율 매우 상승. 다만 제멋대로 행동하여 지시를 무시하고 스킬과 행동을 난사함.</td></tr>
                 <tr><td><strong>펨돔 모드</strong></td><td>물리/상태이상 내성 생성. 펨돔 성향 부여로 트레이너의 명령을 거부함.</td></tr>
+                <tr><td><strong>기사도 모드</strong></td><td>여기사처럼 매우 고고해지며 고집이 세짐. 긍지를 중요시하며 상식이 어딘가 뒤틀려 있음. 일반 검술 및 '암퇘지 보지검법'과 엄청난 시너지를 냄.</td></tr>
+                <tr><td><strong>마망 모드</strong></td><td>모성애가 매우 상승. 모유 분사 등 모성애 관련 스킬이 강력해지며, 모성 때문에 공격보다는 주인을 보호하는 것을 최우선으로 삼음.</td></tr>
             </tbody>
         </table>
     </section>
