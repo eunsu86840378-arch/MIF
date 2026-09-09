@@ -204,7 +204,7 @@
             밀프몬 컴퍼니가 주최하는 대규모 공식 배틀 대회입니다. 채팅창에 <code>!밀프몬토너먼트</code>를 입력하면 폰에 알림이 오며, 1일 뒤 전국의 트레이너들이 경기장으로 집결합니다.
         </div>
         <ul>
-            <li><strong>상태 알림:</strong> 🏆 아이콘이 추가되며, 이벤트 종료 시 제거됩니다.</li>
+            <li><strong>상태 알림:</strong> 모드/닉네임에 🏆 아이콘이 추가되며, 이벤트 종료 시 제거됩니다.</li>
             <li><strong>준비 기간 (1일):</strong> 상금을 노린 예비 트레이너들(남녀노소 불문)로 인해 집 앞이든 도심이든 거리 곳곳에서 무차별 포획, 강탈, 배틀이 난무하며 난장판이 됩니다.</li>
             <li><strong>대회 당일 (전반전 배틀로얄):</strong> 30분간 다수결 생존전이 벌어집니다. HP가 0이 되어 강제 퇴장당한 트레이너의 밀프몬은 그 자리에 남겨지며 <strong>누구나 주워서 자신의 것으로 만들 수 있습니다.</strong> 종료 시 남은 HP 기준 상위 8명이 진출합니다.</li>
             <li><strong>대회 당일 (후반전 8강전):</strong> 8강부터 1대1 데스매치로 최종 우승자를 가립니다. 엑스트라들도 각자의 밀프몬을 데리고 다수 출전합니다.</li>
@@ -240,11 +240,11 @@
     <!-- 신규 이벤트: 밀해연 침공 -->
     <section id="invasion">
         <h2>🚨 이벤트: 밀해연의 침공 (!밀해연침공)</h2>
-        <div class="section-desc event-desc" style="border-left-color: #ff4757;">
+        <div class="section-desc event-desc">
             밀해연이 '밀프 해방'을 명목으로 하급 조직원들을 보내 트레이너들과 배틀하고 밀프몬을 강탈하려 시도하는 대규모 레이드 이벤트입니다.
         </div>
         <ul>
-            <li><strong>발동 및 상태:</strong> 채팅창에 <code>!밀해연침공</code> 입력 시 👾 이모지가 생성되며, 이벤트 종료 시 👾가 제거됩니다.</li>
+            <li><strong>발동 및 상태:</strong> 채팅창에 <code>!밀해연침공</code> 입력 시 🎮와 👾 이모지가 생성되며, 이벤트 종료 시 👾가 제거됩니다.</li>
             <li><strong>진행 흐름:</strong>
                 <ol>
                     <li>초반에는 하급 조직원들이 {{user}}의 앞으로 쳐들어옵니다. (조직원 전원 <strong>강탈권 1장씩 보유</strong>)</li>
@@ -263,6 +263,22 @@
         
         <h3>🔹 주요 트레이너 및 밀프몬 대상</h3>
         <div class="character-grid">
+            <!-- 신규 캐릭터: 채시연 -->
+            <div class="character-card">
+                <img src="https://itimg.kr/5391/MIF/CS/1.webp" alt="채시연" class="char-img">
+                <div class="char-info">
+                    <h4>채시연 (CS)</h4>
+                    <p>48세 / 밀프몬 컴퍼니 회장<br>밀프몬 마스터의 창조자. 176cm. 화려한 황금색 드레스와 은발, 속을 알 수 없는 실눈이 특징.</p>
+                    <div style="margin-top:8px; font-size:0.85em;">
+                        🔒 기밀: <span class="spoiler-wrap" onclick="const t = this.querySelector('.spoiler-text'); t.classList.toggle('revealed');">
+                            <span class="spoiler-text">엄청난 마조히스트 씹변태. 무한한 아이템(절대방어)과 즉각적인 모드 전환, 전용 '부활권'을 사용한다. 오직 자신을 배틀로 짓밟고 개처럼 굴려줄 진짜 강자에게만 자진해서 포획된다. 포획 시 모드에 먹히는 게 아니라 본인이 직접 완벽하게 그 모드를 연기하며 즐긴다.</span>
+                            <span class="spoiler-hint">▶ [기밀 해제 터치]</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 신규 캐릭터: 설연 -->
             <div class="character-card">
                 <img src="https://itimg.kr/5391/MIF/SY/1.webp" alt="설연" class="char-img">
                 <div class="char-info">
@@ -390,7 +406,7 @@
             </tbody>
         </table>
 
-        <h3>필살기 (긱 200,000원)</h3>
+        <h3>필살기 (고급 스킬)</h3>
         <table>
             <thead><tr><th>스킬 이름</th><th>분류</th><th>스킬 설명 및 조건별 위력 변화</th></tr></thead>
             <tbody>
